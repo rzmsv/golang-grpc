@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+option go_package = "github.com/rzmsv/grpc-golang/person";
+
+service PersonService{
+  rpc Create(CreatePersonRequest) returns (PersonProfileResponse);
+  rpc Read(SinglePersonRequest) returns (PersonProfileResponse);
+  rpc Update(UpdatePersonRequest) returns (SuccessResponse);
+  rpc Delete(DeletePersonRequest) returns (SuccessResponse);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  REQUESTS                                  */
+/* -------------------------------------------------------------------------- */
+message CreatePersonRequest{
+  int32 id = 1;
+ string name = 2;
+ string email = 3;
+ string phoneNumber = 4;
+}
+
+message SinglePersonRequest {
+  string email = 1;
+}
+
+message UpdatePersonRequest{
+  int32 id = 1;
+  string name = 2;
+  string email = 3;
+  string phoneNumber = 4;
+}
+
+message DeletePersonRequest {
+  string email = 1;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  RESPONSES                                 */
+/* -------------------------------------------------------------------------- */
+
+message PersonProfileResponse {
+  int32 id = 1;
+  string name = 2;
+  string email = 3;
+  string phoneNumber = 4;
+}
+
+message SuccessResponse{
+  int32 id = 1;
+}
