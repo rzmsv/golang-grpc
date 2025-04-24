@@ -1,4 +1,4 @@
-﻿# Golang-gRpc
+﻿# Golang-gRPC
 
 
 ## ⚙️ Requirements
